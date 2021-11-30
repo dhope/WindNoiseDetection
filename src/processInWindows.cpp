@@ -68,15 +68,15 @@ int loadWav(char * filename, char * outFilename,const char *jsonFilename, char *
     }
        
     //check openable
-    int test = sizeof (header);
+    // int test = sizeof (header);
     if (fread(&header, sizeof (header), 1, wav) < 1) {
         fprintf(stderr, "Can't read input file header %s\n", filename);
        if (verbose ==1){  printf("Can't read input file header %s\n", filename);}
 
         return 1;exit(1);
-    }
+    } 
     if (verbose ==1){
-    printf("\nWavefile Header");
+    printf("\nWavefile Header\n");
     printf("chunk ID %.*s\n", 4, header.id);
     printf("Total length %i\n", header.totallength);
     printf("should say WAVE %.*s\n", 4, header.type);
@@ -111,9 +111,11 @@ int loadWav(char * filename, char * outFilename,const char *jsonFilename, char *
     // printf("should say data %.*s\n", 4, datahead);
     fread(&datasize, sizeof (int32_t), 1, wav);
 
-    //printf("datasize %i\n", datasize);
+    // printf("datasize %i\n", datasize);
+    // printf("header.nochan %i\n", header.nochan);
+    // printf("header.bits_per_sample %i\n", header.bits_per_sample);
     int32_t NoBlocks = datasize / (header.bits_per_sample / 8 * header.nochan);
-
+    // printf("Number blocks  %i\n", NoBlocks);
     // allocate memory for time domain items
     float *window;
     float *windowOver;
@@ -189,7 +191,7 @@ int loadWav(char * filename, char * outFilename,const char *jsonFilename, char *
                 if (verbose ==1){
                     printf("End of file was reached unexpectedly.\n");
                 }
-                      return 1;exit(1);
+                      break;//return 1;exit(1);
 
             }
             if (ferror(wav))
@@ -372,10 +374,10 @@ pFileJSON = fopen(jsonFilename, "w");
     FILE * pFile2;
     pFile2 = fopen(outFilename, "w");
     pFile = fopen(str2, "r");
-    fprintf(pFile2, "Microphone Wind Noise Detection - University of Salford - the Good Recording Project http://www.goodrecording.net \n\n", filename);
+    fprintf(pFile2, "Microphone Wind Noise Detection - University of Salford - the Good Recording Project http://www.goodrecording.net \n\n");//, filename);
     fprintf(pFile2, "Microphone Wind noise Analysis for input file %s\n\n", filename);
     fprintf(pFile2, "Wind Noise Statistics, %% number of frames with wind noise detected at the following Signal to noise Ratios (high values = good quality low values = bad quality). also presented is the range in Quality Degradation that each SNR range represents.\n\n");
-    fprintf(pFile2, "SNR range;\t>20dB,\t20 to 10dB,\t10 to 0dB,\t0 to -10dB,\t-10 to -20dB,\t<-20dB\n", count_wF0, count_wF1, count_wF2, count_wF3, count_wF4, count_wF5);
+    fprintf(pFile2, "SNR range;\t>20dB,\t20 to 10dB,\t10 to 0dB,\t0 to -10dB,\t-10 to -20dB,\t<-20dB\n");//, count_wF0, count_wF1, count_wF2, count_wF3, count_wF4, count_wF5);
     fprintf(pFile2, "Qual. Degradation;\t<24%%,\t24 to 40%%,\t40 to 54%%,\t54 to 69%%,\t69 to 95%%,\t>95%%\n");
     fprintf(pFile2, "%% of time in each SNR range;\t%0.1f,\t%0.1f,\t%0.1f,\t%0.1f,\t%0.1f,\t%0.1f\n", count_wF0, count_wF1, count_wF2, count_wF3, count_wF4, count_wF5);
     fprintf(pFile2, "\n");
@@ -386,6 +388,7 @@ pFileJSON = fopen(jsonFilename, "w");
    //  fprintf(pFileJSON, "[\n\t{\n\t\"test\": \"Global Stats\",\n\t\"results\": [" );                    
     fprintf(pFileJSON, "{\n \t\"Global Stats\":\n \t [ \n" );                    
     fprintf(pFileJSON, "\t\t%0.1f,\t%0.1f,\t%0.1f,\t%0.1f,\t%0.1f,\t%0.1f\n\t\t],\n", count_wF0, count_wF1, count_wF2, count_wF3, count_wF4, count_wF5);
+    fprintf(pFileJSON, "\t \"FileName\": \"%s\",\n", filename);
     fprintf(pFileJSON, "\t \"Time History\":\n\t [\n" );  
     float tLast=0;
     while (fgets(mystring, sizeof (mystring), pFile) != NULL) {
@@ -484,5 +487,6 @@ pFileJSON = fopen(jsonFilename, "w");
 
     remove(str2);
 
+    return 1;
 }
 

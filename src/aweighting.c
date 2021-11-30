@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 *///
 #include "aweighting.h"
+#include <stdlib.h>
 static float *AWfun;
 void aWeighting(float * f, float * a ,int Len, float * rms,int fftn )
 {
