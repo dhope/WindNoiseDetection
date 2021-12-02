@@ -1,19 +1,19 @@
 #!/usr/bin/bash
 
-directory_='/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20211004_NapkenLk_duskdawn/'
-output_director='/cygdrive/d/!_TEMP_AUDIO_SAMPLES/outputs/'
-# INFILE='20211004T203500-0400_SS.wav'
+directory_='//WRIV02DTSTDNT1/RecordStor20172019/BetweenRivers_2019/T049_1144/Data/'
+output_director='/cygdrive/d/WindDetection/outputs/'
 
+echo $directory_
 
 for f in $(find $directory_ -name '*.wav')
     do 
-        echo $f
+        #echo $f
         # arrIN=(${f#/*/*/})
         part1=$(dirname "$f")
         part2=$(basename "$f")
         tail=".wav"
         filenameshort=${part2%$tail}
-        # echo $filenameshort;
+        echo $filenameshort;
         ./windDet.exe -i $f -o $output_director$filenameshort.txt -j $output_director$filenameshort.json  -t 1 -g 1 -f 43 -w 25 -v 0
 
     done
