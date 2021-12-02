@@ -38,7 +38,7 @@ struct wavfile {
 
 static struct wavfile header;
 
-int loadWav(char * filename, char * outFilename,const char *jsonFilename, char *treeDir, float gain, int frameAve,float thresh,int verbose,char * treeFileLoc) {
+int loadWav(const char *filename, const char * outFilename,const char *jsonFilename, char *treeDir, float gain, int frameAve,float thresh,int verbose,char * treeFileLoc) {
     char str1[100], str2[100];
     FILE * pFile;
     FILE *pFileJSON;
