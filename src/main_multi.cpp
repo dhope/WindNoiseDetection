@@ -30,11 +30,12 @@ THE SOFTWARE.
 #include <iostream>
 #include <filesystem>
 #include <vector>
+#include <mpi.h> // Boost to use mpi
 //#include <stdio.h>
 extern "C" {
 #include <unistd.h>
 #include <stdio.h>
-#include <mpi.h> // Boost to use mpi
+
 }
 using namespace std;
 // using std::string;
