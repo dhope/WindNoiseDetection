@@ -29,11 +29,12 @@ THE SOFTWARE.
 #include <string>
 #include <iostream>
 #include <filesystem>
+#include <vector>
 //#include <stdio.h>
 extern "C" {
 #include <unistd.h>
 #include <stdio.h>
-// #include <mpi.h> // Boost to use mpi
+#include <mpi.h> // Boost to use mpi
 }
 using namespace std;
 // using std::string;
@@ -45,6 +46,8 @@ void replaceExt(string& s, const string& newExt) {
    }
 }
 
+std::string p = "/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20210825_NapkenLk_duskdawn";
+std::string outdir = "/cygdrive/d/!_TEMP_AUDIO_SAMPLES/outputs/take2";
 //void loadWav();
 
 /*
@@ -54,14 +57,24 @@ int main(int argc, char* argv[]) {
     // std::string ext_wav ('wav');
     std::string outext = ".txt";
     std::string outjson = ".json";
-    std::string p(argc <= 1 ? "." : argv[1]);
+    // std::string p(argc <= 1 ? "." : argv[1]);
     // char *in_fname = (char *)"iphone1.wav";
     // char *out_fname = (char *)"iphone1.txt";
     // const char *json_fname = (char *)"iphone1.json";
     char *trees =(char *)"dectrees_10_5000";
+    int rank, numprocs;
+    MPI_Init(&argc, &argv);
+	  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+	  MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
+
+    
+  int i = 1;
 
   if (std::filesystem::is_directory(p))
   {
+      std::vector<std::string> paths;
+      std::vector<std::string> out_fnames;
+      std::vector<std::string> json_fnames;
     for (std::filesystem::directory_iterator itr(p); itr!=std::filesystem::directory_iterator(); ++itr)
     {
     //   cout << itr->path().filename() << ' ' ; // display filename only
@@ -69,19 +82,33 @@ int main(int argc, char* argv[]) {
     //   if (std::filesystem::is_regular_file(itr->status())) cout << " [" << file_size(itr->path()) << ']';
       if( extension_tmp.compare(1,3, "wav") == 0 ) {
                 std::string fullname = itr->path().filename();
+                
                 std::string rawname = fullname.substr(0, fullname.find_last_of("."));
                 // const char *out_fname =  (rawname + outext).c_str();
-                std::string out_fname =  (rawname + outext);
+                std::string out_fname =  outdir + (rawname + outext);
                 // const char *json_fname =  (rawname + outjson).c_str();
-                std::string json_fname =  (rawname + outjson);
+                std::string json_fname =  outdir + (rawname + outjson);
+                paths.emplace_back(itr->path().string());
+                out_fnames.emplace_back(out_fname);
+                json_fnames.emplace_back(json_fname);
                 // printf("in name: %s\n outname: %s\n json: %s\n", itr->path().string().c_str(), out_fname.c_str(), json_fname.c_str());
-                loadWav(itr->path().string().c_str(), out_fname.c_str(),json_fname.c_str(), trees, 
-                   1, 43,25,1,"trees");
+                // loadWav(itr->path().string().c_str(), out_fname.c_str(),json_fname.c_str(), trees, 
+                //    1, 43,25,1,"trees");
+                i++;
       }
-        cout << '\n';
+     
 
 
     }
+     int k = paths.size();
+     int j = 0;
+      while (j < k){
+              loadWav(paths[j+rank].c_str(), out_fnames[j+rank].c_str(),json_fnames[j+rank].c_str(), trees, 
+                   1, 43,25,0,"trees");
+              j+=numprocs;
+      }
+      // for (auto k: paths)
+      //         std::cout << k << '\n';
   }
   else cout << (std::filesystem::exists(p) ? "Found: " : "Not found: ") << p << '\n';
 
