@@ -35,7 +35,7 @@ THE SOFTWARE.
 extern "C" {
 #include <unistd.h>
 #include <stdio.h>
-
+#include <mpi.h> // Boost to use mpi
 }
 using namespace std;
 // using std::string;
@@ -47,29 +47,38 @@ void replaceExt(string& s, const string& newExt) {
    }
 }
 
-std::string p = "/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20210825_NapkenLk_duskdawn";
-std::string outdir = "/cygdrive/d/!_TEMP_AUDIO_SAMPLES/outputs/take2";
+
 //void loadWav();
 
 /*
  * 
  */
 int main(int argc, char* argv[]) {
+    // directory of files
+    std::string p = "/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20210825_NapkenLk_duskdawn";
+    std::string outdir = "/cygdrive/d/!_TEMP_AUDIO_SAMPLES/outputs/take3/"; // output directory
     // std::string ext_wav ('wav');
     std::string outext = ".txt";
     std::string outjson = ".json";
+    
+    if (!std::filesystem::is_directory(outdir))    {
+        printf("\nError!");
+        exit (EXIT_FAILURE);
+        
+        }
+//        //printf("\nError!");
     // std::string p(argc <= 1 ? "." : argv[1]);
     // char *in_fname = (char *)"iphone1.wav";
     // char *out_fname = (char *)"iphone1.txt";
     // const char *json_fname = (char *)"iphone1.json";
     char *trees =(char *)"dectrees_10_5000";
+    char *tr_char = (char *)"trees";
     int rank, numprocs;
-    MPI_Init(&argc, &argv);
-	  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-	  MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
-
+    
     
   int i = 1;
+
+  // Iterate through directory and create vector of file names, and output file names
 
   if (std::filesystem::is_directory(p))
   {
@@ -98,20 +107,36 @@ int main(int argc, char* argv[]) {
                 i++;
       }
      
-
+    
 
     }
+
+    MPI_Init(&argc, &argv);
+	  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+	  MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
+
+    if(rank == 0)
+        {
+          printf("starting model %s out: %s\n",p.c_str(),outdir.c_str());
+          printf("Running program with %d  processors\n", numprocs);
+        }
+    
+
+
      int k = paths.size();
-     int j = 0;
+     int j = 0 + rank;
       while (j < k){
-              loadWav(paths[j+rank].c_str(), out_fnames[j+rank].c_str(),json_fnames[j+rank].c_str(), trees, 
-                   1, 43,25,0,"trees");
+        printf("Process %d running: %d of %d\n",rank, j, k);
+              loadWav(paths[j].c_str(), out_fnames[j].c_str(),json_fnames[j].c_str(), trees, 
+                   1, 43,25,0,tr_char);
               j+=numprocs;
       }
       // for (auto k: paths)
       //         std::cout << k << '\n';
   }
   else cout << (std::filesystem::exists(p) ? "Found: " : "Not found: ") << p << '\n';
+
+  MPI_Finalize();
 
   return 0;
 //     int size;
