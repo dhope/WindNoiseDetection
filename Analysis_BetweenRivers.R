@@ -42,10 +42,17 @@ d |> left_join(jsons_rds, by = "fileabv") |> filter(!is.na(totalwindless)) |>
 
 
 
+d |> janitor::clean_names() |> 
+  dplyr::select(site_aru_id :interpreter_id, noise_level:skipped, fileabv) |> 
+  distinct() |> 
+  left_join(jsons_rds, by = "fileabv") |> 
+  filter(!is.na(pwindless)) |> 
+  write_csv("D:/WindDetection/Interpreted_files.csv")
 
 
-
-d |> left_join(jsons_rds, by = "fileabv") |> filter(!is.na(totalwindless)) |> 
+d |> left_join(jsons_rds, by = "fileabv") |> filter(!is.na(totalwindless))     |>
+  filter(Skipped==1 & pwindless>0.75) |> dplyr::select(fileabv,Skipped,matches("Noise"))
+  
   filter(grepl("wind", `Noise\r\nSource`)) |> 
   ggplot(aes(factor(`Noise\r\nLevel`), pwindless, colour = factor(Skipped))) +
   geom_point(position = 
