@@ -54,14 +54,50 @@ void replaceExt(string& s, const string& newExt) {
  * 
  */
 int main(int argc, char* argv[]) {
+  int testForIO = 0;
+  int opt = 0;
+  int status;
     // directory of files
-    std::string p = "/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20210825_NapkenLk_duskdawn";
-    std::string outdir = "/cygdrive/d/!_TEMP_AUDIO_SAMPLES/outputs/take3/"; // output directory
+    std::string p = "/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20210825_NapkenLk_duskdawn6462";
+    std::string outdir = "/cygdrive/d/!_TEMP_AUDIO_SAMPLES/outputs/take3562/"; // output directory
     // std::string ext_wav ('wav');
     std::string outext = ".txt";
     std::string outjson = ".json";
     
-    if (!std::filesystem::is_directory(outdir))    {
+       while ((opt = getopt(argc, argv, "i:o:h:")) != -1) {
+        switch (opt) {
+                        case 'h':{
+                printf("\n mpirun windDet.exe -i wav_directory -o output_directory");
+                printf("\n-i and -o are required parameters, they provide the input directory holding .wav files and the output directory respectively. ");
+                break;}
+            case 'i':{
+                p = optarg;
+                //printf("\nInput file =%s", in_fname);
+                break;}
+            case 'o':{
+                outdir = optarg;
+                //printf("\nOutput file=%s", out_fname);
+//                std::string Str = std::string(optarg);
+//                replaceExt(Str, "json");
+//                json_fname= Str.c_str();
+//                printf("\nOutput file=%s", json_fname);
+
+                break;}
+            
+        }
+        testForIO = 1;
+    } 
+    // cout << outdir.c_str() << endl;
+      if (testForIO == 0 || !std::filesystem::is_directory(outdir)) {
+        printf("\nIncorrect or missing input parameters");
+        printf("\nwindDet.exe -i wav_directory -o output_directory");
+        printf("\n-i and -o are required parameters, they provide the input .wav dirctory and the output directory respectively.\n");
+        status=0;
+    } else{status=1;}
+
+
+
+    if (status==0)    {
         printf("\nError!");
         exit (EXIT_FAILURE);
         
@@ -80,14 +116,17 @@ int main(int argc, char* argv[]) {
 
   // Iterate through directory and create vector of file names, and output file names
 
-  if (std::filesystem::is_directory(p))
+  if (status == 1 )
   {
       std::vector<std::string> paths;
       std::vector<std::string> out_fnames;
       std::vector<std::string> json_fnames;
-    for (std::filesystem::directory_iterator itr(p); itr!=std::filesystem::directory_iterator(); ++itr)
+    for (std::filesystem::recursive_directory_iterator itr(p); itr!=std::filesystem::recursive_directory_iterator(); ++itr)
     {
     //   cout << itr->path().filename() << ' ' ; // display filename only
+    if(std::filesystem::is_directory(itr -> path())){
+      continue;
+    }
       std::string extension_tmp = itr->path().extension() ;
     //   if (std::filesystem::is_regular_file(itr->status())) cout << " [" << file_size(itr->path()) << ']';
       if( extension_tmp.compare(1,3, "wav") == 0 ) {

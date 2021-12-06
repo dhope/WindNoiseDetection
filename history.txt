@@ -1,0 +1,445 @@
+dir
+ls
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection/
+ls
+make
+make windDet
+g++
+man g++ 
+g++ --version
+make clean
+make windDet
+windDet.exe -i test/iphone1.wav -o test/iphone1.txt -j test/iphone1.json -t 1 -g 1 -f 43 -w 25 -v 0
+./windDet.exe -i test/iphone1.wav -o test/iphone1.txt -j test/iphone1.json -t 1 -g 1 -f 43 -w 25 -v 0
+ ./windDet.exe -i '/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20211005_NapkenLk_duskdawn/20211005T023500-0400_SS.wav' -o test/sampletest.txt -j test/sampletest.json -t 1 -g 1 -f 43 -w 25 -v 1
+make windDet
+ ./windDet.exe -i '/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20211005_NapkenLk_duskdawn/20211005T023500-0400_SS.wav' -o test/sampletest.txt -j test/sampletest.json -t 1 -g 1 -f 43 -w 25 -v 0
+ ./windDet.exe -i '/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20211005_NapkenLk_duskdawn/20211005T124200-0400_SR.wav' -o test/sampletest2.txt -j test/sampletest2.json -t 1 -g 1 -f 43 -w 25 -v 0
+ ./windDet.exe -i '/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20211005_NapkenLk_duskdawn/20211005T124200-0400_SR.wav' -o test/sampletest2.txt -j test/sampletest2.json -t 1 -g 1 -f 43 -w 25 -v 1
+make windDet
+./windDet.exe -i test/windsample.wav -o test/iphone2.txt -j test/iphone2.json -t 1 -g 1 -f 43 -w 25 -v 1
+ ./windDet.exe -i '/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20211005_NapkenLk_duskdawn/20211005T124200-0400_SR.wav' -o test/sampletest2.txt -j test/sampletest2.json -t 1 -g 1 -f 86 -w 25 -v 1
+ ./windDet.exe -i '/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20211005_NapkenLk_duskdawn/20211005T124200-0400_SR.wav' -o test/sampletest2.txt -j test/sampletest2.json -t 1 -g 1 -f 86 -w 25 -v 1
+make windDet
+ ./windDet.exe -i '/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20211005_NapkenLk_duskdawn/20211005T124200-0400_SR.wav' -o test/sampletest2.txt -j test/sampletest2.json -t 1 -g 1 -f 86 -w 25 -v 1
+ ./windDet.exe -i /cygdrive/d/\!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20210826_NapkenLk_duskdawn/20210826T103500-0400_SR.wav -o test/sampletest3.txt -j test/sampletest3.json -t 1 -g 1 -f 86 -w 25 -v 1
+./windDet.exe -i '/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20211004_NapkenLk_duskdawn/20211004T203500-0400_SS.wav' -o test/Windless.txt -j test/Windless.json -v 1
+./windDet.exe -i '/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20211004_NapkenLk_duskdawn/20211004T203500-0400_SS.wav'  -j test/Windless2.json -f 500 -v 1
+./windDet.exe -i '/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20211004_NapkenLk_duskdawn/20211004T203500-0400_SS.wav' -o test/Windless2.txt -j test/Windless2.json -f 500 -v 1
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+which bash
+./RunWindDet.sh 
+./RunWindDet.sh 
+d1='/cgddrive/d/TMP_R_Clones'
+d2='WindNoiseDetection'
+$d1$d2
+cd $d1$d2
+cd $d1/$d2
+cd $d1\/$d2
+d1='/cygddrive/d/TMP_R_Clones/'
+cd $d1\/$d2
+cd $d1$d2
+d1='/cygdrive/d/TMP_R_Clones/'
+cd $d1$d2
+touch .gitignore
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+make windDet
+./windDet.exe -i test/windsample.wav -o test/iphone2.txt -j test/iphone2.json -t 1 -g 1 -f 43 -w 25 -v 1
+./windDet.exe -i test/iphone.wav -o test/iphone2.txt -j test/iphone2.json -t 1 -g 1 -f 43 -w 25 -v 1
+./windDet.exe -i test/iphone1.wav -o test/iphone2.txt -j test/iphone2.json -t 1 -g 1 -f 43 -w 25 -v 1
+./windDet.exe -i test/iphone1.wav -o test/iphone2.txt -j test/iphone2.json -t 1 -g 1 -f 43 -w 25 -v 1
+make windDet
+./windDet.exe -i test/iphone1.wav -o test/iphone2.txt -j test/iphone2.json -t 1 -g 1 -f 43 -w 25 -v 1
+make windDet
+./windDet.exe -i test/iphone1.wav -o test/iphone2.txt -j test/iphone2.json -t 1 -g 1 -f 43 -w 25 -v 1
+make windDet
+./windDet.exe -i test/iphone1.wav -o test/iphone2.txt -j test/iphone2.json -t 1 -g 1 -f 43 -w 25 -v 1
+make windDet
+./windDet.exe -i test/iphone1.wav -o test/iphone2.txt -j test/iphone2.json -t 1 -g 1 -f 43 -w 25 -v 0
+./windDet.exe -i test/iphone1.wav -o test/iphone2.txt -j test/iphone2.json -t 1 -g 1 -f 43 -w 25 -v 0
+make windDet
+./windDet.exe -i test/iphone1.wav -o test/iphone2.txt -j test/iphone2.json -t 1 -g 1 -f 43 -w 25 -v 0
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+./RunWindDet.sh 
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+make
+make
+make
+make
+make
+./windDet.exe -i test/iphone1.wav -o test/iphone2.txt -j test/iphone2.json -t 1 -g 1 -f 43 -w 25 -v 0
+make main_multi.cpp
+make main_multi.o
+make src/main_multi.cpp
+make src/main_multi.o
+make src/main_multi.o
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+make src/main_multi.o
+make src/main_multi.o
+make src/main_multi.o
+make src/main_multi.o
+mpicc src/main_multi.cpp -o src/main_multi.o
+mpicc src/main_multi.cpp -o src/main_multi.o
+mpic++ src/main_multi.cpp -o src/main_multi.o
+mpic++ src/main_multi.cpp -o src/main_multi.o
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+mpicc src/main_multi.cpp -o src/main_multi.o
+mpiCC src/main_multi.cpp -o src/main_multi.o
+mpicc -showme
+ll /usr/lib/openmpi/
+ls /usr/lib/openmpi/
+ls -a /usr/lib/openmpi/
+ls -a /usr/lib/
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+mpicc src/main_multi.cpp -o src/main_multi.o
+mpiCC src/main_multi.cpp -o src/main_multi.o
+mpic++ src/main_multi.cpp -o src/main_multi.o
+showme mpicc
+showme mpicc
+mpicc
+mpicc showme
+mpicc --showme
+cd /usr/lib
+ll -a
+ls -as
+ls -al
+ls -al
+cd openmpi/
+ls
+ls -al
+cd /usr/lib
+ls
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+mpicc src/main_multi.cpp -o src/main_multi.o
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+mpicc src/main_multi.cpp -o src/main_multi.o
+gcc -fexceptions -L/usr/lib/openmpi -lmpi -lopen-rte -lopen-pal -lm -lgdi32  src/main_multi.cpp -o src/main_multi.o
+gcc -fexceptions -L/usr/lib/openmpi -lmpi -lopen-rte -lopen-pal -lm -lgdi32  src/main_multi.cpp -o src/main_multi.o
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+mpicc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc --version
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+gcc src/main_multi.cpp -o src/main_multi.o
+g++ src/main_multi.cpp -o src/main_multi.o
+ls 
+cd scr
+cd src
+ls
+./main_multi.cpp /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+./main_multi.cpp /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+,,
+cd ..
+g++ src/main_multi.cpp -o main_multi.exe
+./main_multi.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+./main_multi.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/testd/
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+./main_multi.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/testd/
+./main_multi.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+./main_multi.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+./main_multi.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+./main_multi.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+g++ src/main_multi.cpp -o main_multi.exe
+./main_multi.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+g++ src/main_multi.cpp -o main_multi.exe
+./main_multi.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+./main_multi.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+g++ src/main_multi.cpp -o main_multi.exe
+./main_multi.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+./main_multi.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+g++ src/main_multi.cpp -o main_multi.exe
+make src/main_multi.cpp
+make src/main_multi.o
+make src/main_multi.o
+make src/main_multi.o
+make src/main_multi.o
+make src/main_multi.o
+make src/main_multi.o
+make src/main_multi.o
+make src/main_multi.o
+make src/main_multi.o
+make src/main_multi.o
+g++ --version
+g++ --version
+make src/main_multi.o
+make src/main_multi.o
+g++ -Wall -ansi -O3   -c --version
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp -o main_multi.exe
+g++ src/main_multi.cpp src/processInWindows.cpp
+make src/main_multi.o
+make src/main_multi.o
+g++ --version
+g++ --version
+make src/main_multi.o
+./src/main_multi.o /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make src/main_multi.exe
+make src/main_multi.exe
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+mpicc showme
+mpicc --showme
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+gcc --showme
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make windDet
+make clean
+make clean
+make windDet
+mpicc -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+mpiexec -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+mpi++ -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+mpic++ -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+man id
+make clean
+make windDet
+make windDet
+mpicxx -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+mpicc -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+make clean
+make windDet
+make windDet
+make windDet
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+make windDet
+make windDet
+make clean
+make windDet
+make windDet
+make clean
+make windDet
+g++ -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+mpicxx -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+mpicxx --showme
+mpicc --showme
+g++ -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+make windDet
+make windDet
+g++ -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+make windDet
+make clean
+make windDet
+ld
+ld -lmpi_cxx --verbose
+g++ -Xlinker --verbose -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+mpic++ -Xlinker --verbose -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+mpic++ -Xlinker --verbose -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+mpic++ erbose -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o
+mpic++ -Xlinker --verbose -o  windDet src/main_multi.o src/processInWindows.o src/DecisionTreeClass.o src/aweighting.o src/featureExtraction.o src/kiss_fft130/kiss_fft.o [B
+make windDet
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/ -np 4
+make windDet
+./windDet.exe /cygdrive/d/TMP_R_Clones/WindNoiseDetection/test/ -np 4
+make windDet
+./windDet.exe  -np 4
+make windDet
+./windDet.exe  -np 4
+./windDet.exe  -np 4
+make windDet
+./windDet.exe  -np 4
+make windDet
+./windDet.exe  -np 4
+make windDet
+./windDet.exe  -np 4
+make windDet
+make windDet
+./windDet.exe  -np 4
+make windDet
+./windDet.exe  -np 4
+mpirun windDet.exe  -np 4
+make windDet
+mpirun windDet.exe  -np 4
+mpirun --help
+mpirun windDet.exe  -c 4
+make windDet
+mpirun windDet.exe  -c 4
+make windDet
+mpirun windDet.exe  -c 4
+mpirun --help
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+make windDet
+mpirun -np 4 windDet.exe
+make windDet
+mpirun -np 4 windDet.exe
+make windDet
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+make windDet
+make windDet
+make windDet
+mpirun -np 4 windDet.exe
+/cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn
+[200~/cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn
+mpirun -np 6 windDet.exe -i /cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn -o /cygdrive/d/\!_TEMP_AUDIO_SAMPLES/outputs/test4/
+mpirun -np 6 /cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn -o /cygdrive/d/\!_TEMP_AUDIO_SAMPLES/outputs/test4/
+mpirun -np 6 /cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn -o /cygdrive/d/\!_TEMP_AUDIO_SAMPLES/outputs/test4/ windDet.exe 
+mpirun -np 6 windDet.exe -i /cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn -o /cygdrive/d/\!_TEMP_AUDIO_SAMPLES/outputs/test4/
+windDet.exe -h-
+windDet.exe -h
+./windDet.exe -h
+./windDet.exe -h 1
+make windDet
+mpirun -np 6 windDet.exe -i /cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn -o /cygdrive/d/\!_TEMP_AUDIO_SAMPLES/outputs/test4/
+make windDet
+mpirun -np 6 windDet.exe -i /cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn -o /cygdrive/d/\!_TEMP_AUDIO_SAMPLES/outputs/test4/
+cd [/cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn]
+cd [/cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdaw
+cd /cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdaw
+cd /cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn
+cd /cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn
+cd /cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn
+cd /cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn
+cd /cygdrive/g/CorruptedARUFiles/P52_1/20210602_NapkenLk_duskdawn
+cd /cygdrive/d/TMP_R_Clones/WindNoiseDetection
+history | history.txt
+history -w history.txt
