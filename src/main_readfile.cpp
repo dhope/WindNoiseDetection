@@ -68,6 +68,7 @@ int main(int argc, char* argv[]) {
     std::string outext = ".txt";
     std::string outjson = ".json";
     std::string wavext = ".wav";
+
     
     while ((opt = getopt(argc, argv, "i:o:v:h:")) != -1) {
         switch (opt) {
@@ -115,6 +116,9 @@ int main(int argc, char* argv[]) {
     // char *in_fname = (char *)"iphone1.wav";
     // char *out_fname = (char *)"iphone1.txt";
     // const char *json_fname = (char *)"iphone1.json";
+    std::string pathlistname = p + "pathlist.txt";
+    std::string filelistname = p + "filelist.txt";
+    std::string sitelistname = p + "sitelist.txt";
     char *trees =(char *)"dectrees_10_5000";
     char *tr_char = (char *)"trees";
     int rank, numprocs;
@@ -127,17 +131,18 @@ int main(int argc, char* argv[]) {
       std::vector<std::string> paths;
       std::vector<std::string> filenames;
       std::vector<std::string> sites; 
-      std::ifstream pathlist("/cygdrive/c/Users/hoped/Documents/Local_Workspace/Projects/ARUtools/pathlist.txt");// "pathlist.txt");
-      std::ifstream filenameslist("/cygdrive/c/Users/hoped/Documents/Local_Workspace/Projects/ARUtools/filelist.txt");
-      std::ifstream sitelist( "/cygdrive/c/Users/hoped/Documents/Local_Workspace/Projects/ARUtools/sitelist.txt");
+      std::ifstream pathlist(pathlistname);// "pathlist.txt");
+      std::ifstream filenameslist(filelistname);
+      std::ifstream sitelist(sitelistname);
 
-    if(!pathlist) //Always test the file open.
+    if(!pathlist || !filenameslist || !sitelist) //Always test the file open.
     {
         std::cout<<"Error opening output file"<< std::endl;
         
         return -1;
     }
-
+    
+    // Read in paths, filenames and sites from files.
       std::copy(std::istream_iterator<string>(pathlist),
          std::istream_iterator<string>(),
          std::back_inserter(paths));
@@ -147,64 +152,11 @@ int main(int argc, char* argv[]) {
          std::copy(std::istream_iterator<string>(sitelist),
          std::istream_iterator<string>(),
          std::back_inserter(sites));
-         
-         
-      
-       try {
-        // use ".at()" and catch the resulting exception if there is any
-        // chance that the index is bogus. Since we are reading external files,
-        // there is every chance that the index is bogus.
-        cout<<paths.at(2)<<"\n";
-        cout<<filenames.at(2)<<"\n";
-        cout<<sites.at(2)<<"\n";
-    } catch(...) {
-        // deal with error here. Maybe:
-        //   the input file doesn't exist
-        //   the ifstream creation failed for some other reason
-        //   the string reads didn't work
-        cout << "Data Unavailable\n";
-    }
-    //   std::string pathlist = p + "pathlist.txt";
-    //   std::string filenameslist = p + "filelist.txt";
-    //   std::string sitelist = p + "sitelist.txt";
-    //   ifstream pathfile(p);
-    //   std::istream_iterator<std::string> start(pathfile), end;
-    //   std::vector<std::string> paths(start,end);
-    //   std::copy(numbers.begin(), numbers.end(), 
-    //         std::ostream_iterator<double>(std::cout, " "));
 
-
-
-    //   ifstream filenamefile;
-    //   pathfile.open(pathlist);
-    //   filenamefile.open(filenameslist);
-    //   while(!dataFile.eof()) {
-    //           std::string str;
-    //           std::getline( dataFile, str);
-    //           std::stringstream buffer(str);
-    //           std::string temp;
-    //           std::vector<std::string> values;
-
-    //           while( getline( buffer, temp, '\t') ) {
-    //               values.push_back( ::strtod(temp.c_str(), 0));
-    //           }
-
-    //         data.push_back(values[numColumn]);
-    // }
-
-
-    //   std::vector<std::pair<std::string, std::vector<std::string>>> filepaths = read_csv(p);
-    //    = filepaths.at(1).second;
-    //   std::vector<std::string> filenames = filepaths.at(2).second;
-    //   std::vector<std::string> sites = filepaths.at(3).second;
-      
     int k = paths.size();
     int z = sites.size();
     printf("Files are %d and %d of length\n", k, z);
-    //  if(k != z) {
-    //      printf("Read failure. Columns not equal size");
-    //      exit (EXIT_FAILURE);   
-    //  }
+   
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 	  MPI_Comm_size(MPI_COMM_WORLD, &numprocs);
@@ -219,42 +171,18 @@ int main(int argc, char* argv[]) {
 
       while (j < k){
         std::string in_fname = paths.at(j)+  "/" + filenames.at(j) + wavext;//paths[j] + filenames[j] + wavext;
-        std::string out_fname =  outdir +   sites[j]  + "__" +  filenames[j] + outext;
-        std::string json_fnames =  outdir +  sites[j] + "__" + filenames[j] + outjson;
-        cout<< in_fname << "\t" << out_fname <<"\t" << json_fnames << endl;
+        std::string out_fname =  outdir +   sites.at(j)  + "__" +  filenames.at(j) + outext;
+        std::string json_fnames =  outdir +  sites.at(j) + "__" + filenames.at(j) + outjson;
+        // cout<< in_fname << "\t" << out_fname <<"\t" << json_fnames << endl;
         loadWav(in_fname.c_str(), out_fname.c_str(),json_fnames.c_str(), trees, 
                    1, 43,25,verbose,tr_char);
               j+=numprocs;
       }
-      // for (auto k: paths)
-      //         std::cout << k << '\n';
   }
   else cout << (std::filesystem::exists(p) ? "Found: " : "Not found: ") << p << '\n';
 
   MPI_Finalize();
 
   return 0;
-//     int size;
-//     int rank;
-
-//     getopt(argc, argv, "d")
-//     MPI_Init(&argc, &argv);
-
-//     MPI_Comm_size(MPI_COMM_WORLD, &size); // think size = 4 for this example
-//     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-
-
-//     {    
-//         //
-//        status= loadWav(in_fname, out_fname,json_fname, treeDir, gain, frameAve,thresh,verbose,treeFileLoc);
-//     }
-//    if (status==1)
-//            exit (EXIT_FAILURE);
-//        //printf("\nError!");
-//      if (status==0)
-//          exit(status);
-//       //printf("\nSuccess!");
-
-//     return status;
+  
 }
-
