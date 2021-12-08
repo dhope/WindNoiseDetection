@@ -50,12 +50,6 @@ void replaceExt(string& s, const string& newExt) {
    }
 }
 
-
-//void loadWav();
-
-/*
- * 
- */
 int main(int argc, char* argv[]) {
   int testForIO = 0;
   int opt = 0;
@@ -85,12 +79,6 @@ int main(int argc, char* argv[]) {
                  break;}
             case 'o':{
                 outdir = optarg;
-                //printf("\nOutput file=%s", out_fname);
-//                std::string Str = std::string(optarg);
-//                replaceExt(Str, "json");
-//                json_fname= Str.c_str();
-//                printf("\nOutput file=%s", json_fname);
-
                 break;}
             
         }
