@@ -19,4 +19,4 @@ OBJ/%.o : %.c
 
 
 clean:
-	rm $(OBJS)
+	rm $(OBJS2)

@@ -1,6 +1,34 @@
 # Wind Noise Detection in Audio Files
 ### University Of Salford Acoustics Research Centre
 
+# WindNoiseDetection
+
+A fork of [kenders2000/WindNoiseDetection](https://github.com/kenders2000/WindNoiseDetection). I have just modified the wrappper to allow for reading file locations and names from a file and implemented MPI to allow for parallel processing.
+
+*Warning* there lurks a memory leak somewhere, so running a large numbers of files will eventually lead to the program crashing and you'll have to start again. 
+
+To run you'll need cygwin or a bash terminal with MPI installed. 
+
+To compile run 
+
+```
+make winDDetFile
+```
+
+or if you don't want to use the list of files feature just `make windDet`
+
+To run:
+```
+mpirun -np 19 windDetFile.exe -i paths/ -o /cygdrive/d/WindDetection/NL_outputs/errors/
+
+```
+
+where -i is the argument for the location of your file paths and -o is the output directory and -np is the number of processors to run with. 
+
+See below for original README and details.
+
+
+
 ## Overview
 
 This program automatically analyses .wav files and detects regions where there may be microphone wind noise.  Wind noise is known to degrade the quality of outdoor recordings and causes problems with hearing aids.  

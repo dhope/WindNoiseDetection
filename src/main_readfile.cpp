@@ -161,9 +161,10 @@ int main(int argc, char* argv[]) {
         std::string in_fname = paths.at(j)+  "/" + filenames.at(j) + wavext;//paths[j] + filenames[j] + wavext;
         std::string out_fname =  outdir +   sites.at(j)  + "__" +  filenames.at(j) + outext;
         std::string json_fnames =  outdir +  sites.at(j) + "__" + filenames.at(j) + outjson;
+		// printf("file: %s\n", in_fname.c_str());
         // cout<< in_fname << "\t" << out_fname <<"\t" << json_fnames << endl;
-        loadWav(in_fname.c_str(), out_fname.c_str(),json_fnames.c_str(), trees, 
-                   1, 43,25,verbose,tr_char);
+        int lWo = loadWav(in_fname.c_str(), out_fname.c_str(),json_fnames.c_str(), trees, 
+                  1, 43,25,verbose,tr_char);
               j+=numprocs;
       }
   }

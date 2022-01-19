@@ -484,6 +484,8 @@ pFileJSON = fopen(jsonFilename, "w");
     fclose(pFile2);
      fprintf(pFileJSON, "\n\t]\n}\n");
      fclose(pFileJSON);
+	 fclose(wav);
+	 delete(wav);
 
     remove(str2);
 
