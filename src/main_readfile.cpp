@@ -125,7 +125,12 @@ int main(int argc, char* argv[]) {
 
     if(!pathlist || !filenameslist || !sitelist) //Always test the file open.
     {
-        std::cout<<"Error opening output file"<< std::endl;
+		if(!pathlist) std::cout<<"Error opening pathlist file"<< std::endl;
+		if(!filenameslist) std::cout<<"Error opening filename file"<< std::endl;
+		if(!sitelist) std::cout<<"Error opening sitename file"<< std::endl;
+			
+       
+	   //std::cout<<"Error opening output file"<< std::endl;
         
         return -1;
     }
