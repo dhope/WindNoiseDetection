@@ -159,6 +159,8 @@ int loadWav(const char *filename, const char * outFilename,const char *jsonFilen
 
 
         int i, c, n;
+		int end;
+		end = 0;
         for (i = 0; i < (NoBlocks); i++) {
             //channelsum[i]=0;
             for (c = 0; c < (header.nochan); c++) {
@@ -189,9 +191,11 @@ int loadWav(const char *filename, const char * outFilename,const char *jsonFilen
             {
                
                 if (verbose ==1){
-                    printf("End of file was reached unexpectedly.\n");
+                    printf("End of file was reached unexpectedly.%d ,%d \n", wN, WIN_N);
                 }
-                      break;//return 1;exit(1);
+				end = 1;
+                 break;//return 1;exit(1);
+				 
 
             }
             if (ferror(wav))
@@ -208,6 +212,12 @@ int loadWav(const char *filename, const char * outFilename,const char *jsonFilen
                 //fprintf(pFile,"%f \n",channelsum[i]);
             } //65,535
             //close(pFile);
+			if(end == 1) {
+				if (verbose ==1){
+                    printf("We breaking: %d, %d", wN, WIN_N);
+                }
+				break;
+				}
 
             //every WIN_N samples do this
             wN++;
@@ -290,9 +300,16 @@ int loadWav(const char *filename, const char * outFilename,const char *jsonFilen
             //fprintf(pFile,"%f \n",channelsum[i]);
 
         }
+	
     }
+	if (verbose ==1){
+		printf("File processing complete");
+		}
     fclose(pFile);
-
+	
+	
+	
+	
 
     // Global stats
     float aveAveLevel = 0;
@@ -310,6 +327,7 @@ int loadWav(const char *filename, const char * outFilename,const char *jsonFilen
     float count_wF0 = 0;
     counter = 0;
     //  pFile2 = fopen ( 'tmp.txt' , "w");
+	// printf("I am here now");
     pFile = fopen(str2, "r");
     char mystring[1000];
     while (fgets(mystring, sizeof (mystring), pFile) != NULL) {

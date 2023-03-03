@@ -136,19 +136,43 @@ int main(int argc, char* argv[]) {
     }
     
     // Read in paths, filenames and sites from files.
-      std::copy(std::istream_iterator<string>(pathlist),
-         std::istream_iterator<string>(),
-         std::back_inserter(paths));
-      std::copy(std::istream_iterator<string>(filenameslist),
-         std::istream_iterator<string>(),
-         std::back_inserter(filenames));
-         std::copy(std::istream_iterator<string>(sitelist),
-         std::istream_iterator<string>(),
-         std::back_inserter(sites));
+	std::string str;
+	while(std::getline(pathlist, str))
+	{
+		// Line contains string of length > 0 then save it in vector
+		if(str.size() > 0)
+        paths.push_back(str);
+	}
+	
+	while(std::getline(filenameslist, str))
+	{
+		// Line contains string of length > 0 then save it in vector
+		if(str.size() > 0)
+        filenames.push_back(str);
+	}
+	while(std::getline(sitelist, str))
+	{
+		// Line contains string of length > 0 then save it in vector
+		if(str.size() > 0)
+        sites.push_back(str);
+	}
+	
+	
+	
+      // std::copy(std::istream_iterator<string>(pathlist),
+         // std::istream_iterator<string>(),
+         // std::back_inserter(paths));
+      // std::copy(std::istream_iterator<string>(filenameslist),
+         // std::istream_iterator<string>(),
+         // std::back_inserter(filenames));
+         // std::copy(std::istream_iterator<string>(sitelist),
+         // std::istream_iterator<string>(),
+         // std::back_inserter(sites));
 
     int k = paths.size();
     int z = sites.size();
-    printf("Files are %d and %d of length\n", k, z);
+	int p = filenames.size();
+    printf("Numbers of Path: %d, sites:  %d, and files: %d \n", k, z, p);
    
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
