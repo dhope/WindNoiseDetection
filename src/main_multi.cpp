@@ -31,6 +31,7 @@ THE SOFTWARE.
 #include <filesystem>
 #include <vector>
 #include <mpi.h> // Boost to use mpi
+		  
 //#include <stdio.h>
 extern "C" {
 #include <unistd.h>
@@ -57,6 +58,7 @@ int main(int argc, char* argv[]) {
   int testForIO = 0;
   int opt = 0;
   int status;
+  int verbose=0;
     // directory of files
     std::string p = "/cygdrive/d/!_TEMP_AUDIO_SAMPLES/ARU_RecordingSample_P7-04/20210825_NapkenLk_duskdawn6462";
     std::string outdir = "/cygdrive/d/!_TEMP_AUDIO_SAMPLES/outputs/take3562/"; // output directory
@@ -64,7 +66,7 @@ int main(int argc, char* argv[]) {
     std::string outext = ".txt";
     std::string outjson = ".json";
     
-       while ((opt = getopt(argc, argv, "i:o:h:")) != -1) {
+       while ((opt = getopt(argc, argv, "i:o:v:h:")) != -1) {
         switch (opt) {
                         case 'h':{
                 printf("\n mpirun windDet.exe -i wav_directory -o output_directory");
@@ -74,7 +76,10 @@ int main(int argc, char* argv[]) {
                 p = optarg;
                 //printf("\nInput file =%s", in_fname);
                 break;}
-            case 'o':{
+				case 'v':{
+                verbose = atof(optarg);
+                 break;}		  
+			 case 'o':{
                 outdir = optarg;
                 //printf("\nOutput file=%s", out_fname);
 //                std::string Str = std::string(optarg);
@@ -166,8 +171,11 @@ int main(int argc, char* argv[]) {
      int j = 0 + rank;
       while (j < k){
         printf("Process %d running: %d of %d\n",rank, j, k);
+		printf("file: %s\n", paths[j].c_str());
+		printf("out file: %s\n", out_fnames[j].c_str());
+		printf("json file: %s\n", json_fnames[j].c_str());
               loadWav(paths[j].c_str(), out_fnames[j].c_str(),json_fnames[j].c_str(), trees, 
-                   1, 43,25,0,tr_char);
+                   1, 43,25,verbose,tr_char);
               j+=numprocs;
       }
       // for (auto k: paths)

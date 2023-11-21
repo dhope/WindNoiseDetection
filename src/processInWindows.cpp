@@ -123,6 +123,7 @@ int loadWav(const char *filename, const char * outFilename,const char *jsonFilen
     window = (float*) malloc(sizeof (float)*WIN_N);
     windowOver = (float*) malloc(sizeof (float)*WIN_N);
     windowPrev = (float*) malloc(sizeof (float)*WIN_N);
+	// printf("WIN_N  %i\n", WIN_N);
 
     float * mfcc = (float*) malloc((16) * sizeof (float));
     float * mfccO = (float*) malloc((16) * sizeof (float));
@@ -194,9 +195,10 @@ int loadWav(const char *filename, const char * outFilename,const char *jsonFilen
                     printf("End of file was reached unexpectedly.%d ,%d \n", wN, WIN_N);
                 }
 				end = 1;
-                 break;//return 1;exit(1);
+				
+                 break;
 				 
-
+				 
             }
             if (ferror(wav))
             {
@@ -204,6 +206,7 @@ int loadWav(const char *filename, const char * outFilename,const char *jsonFilen
                 printf("An error reading the wav occurred.\n");}
                 return 1;exit(1);
             }
+			
                 float tmp3 = (tmp2 / (float) header.nochan) / normV * 158489.0 * gain; //*  158489=  10^(104/20)
                 window[wN] = window[wN] + tmp3;
                 // printf("%f \n",window[wN]);
@@ -212,6 +215,7 @@ int loadWav(const char *filename, const char * outFilename,const char *jsonFilen
                 //fprintf(pFile,"%f \n",channelsum[i]);
             } //65,535
             //close(pFile);
+			
 			if(end == 1) {
 				if (verbose ==1){
                     printf("We breaking: %d, %d", wN, WIN_N);

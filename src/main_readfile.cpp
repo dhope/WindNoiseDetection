@@ -32,8 +32,8 @@ THE SOFTWARE.
 #include <vector>
 #include <mpi.h> // Boost to use mpi
 #include <fstream>
-#include <iterator>
-#include <algorithm>
+// #include <iterator>
+// #include <algorithm>
 //#include <stdio.h>
 extern "C" {
 #include <unistd.h>
@@ -187,14 +187,16 @@ int main(int argc, char* argv[]) {
      int j = 0 + rank;
 
       while (j < k){
-        std::string in_fname = paths.at(j)+  "/" + filenames.at(j) + wavext;//paths[j] + filenames[j] + wavext;
+        std::string in_fname = paths.at(j)+  "/" + filenames.at(j) + wavext;//paths[j] + "/" +  filenames[j] + wavext;//
         std::string out_fname =  outdir +   sites.at(j)  + "__" +  filenames.at(j) + outext;
         std::string json_fnames =  outdir +  sites.at(j) + "__" + filenames.at(j) + outjson;
 		// printf("file: %s\n", in_fname.c_str());
+		// printf("file: %s\n", out_fname.c_str());
+		// printf("file: %s\n", json_fnames.c_str());
         // cout<< in_fname << "\t" << out_fname <<"\t" << json_fnames << endl;
-        int lWo = loadWav(in_fname.c_str(), out_fname.c_str(),json_fnames.c_str(), trees, 
+        loadWav(in_fname.c_str(), out_fname.c_str(),json_fnames.c_str(), trees, 
                   1, 43,25,verbose,tr_char);
-              j+=numprocs;
+				  j+=numprocs;
       }
   }
   else cout << (std::filesystem::exists(p) ? "Found: " : "Not found: ") << p << '\n';
